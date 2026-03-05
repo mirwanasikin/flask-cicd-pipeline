@@ -1,16 +1,16 @@
-name: Flask Test
+name: Run Tests
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Setup Python
@@ -18,10 +18,12 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           pip install -r requirements.txt
           pip install pytest
 
-      - name: Run tests
+      - name: Run pytest
+        env:
+          PYTHONPATH: .
         run: pytest
