@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
 
           script: |
-            docker pull ghcr.io/${{ github.repository }}/flask:${{ github.event.workflow_run.head_branch }}
+            docker pull ghcr.io/${{ github.repository }}:${{ github.event.workflow_run.head_branch }}
 
             docker stop flask_app || true
             docker rm flask_app || true
