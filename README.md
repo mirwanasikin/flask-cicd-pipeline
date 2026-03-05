@@ -28,7 +28,7 @@ Developer → GitHub → CI (pytest) → Docker Build → GHCR → Deploy → EC
 │   └── app.py
 ├── tests
 │   └── test_app.py
-├── terraform
+├── Dockerfile
 └── README.md
 ```
 
